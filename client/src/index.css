@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --glass: rgba(255,255,255,0.07);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #09090b;
+  color: white;
+  overflow-x: hidden;
+}
+
+.logo-font { font-family: 'Space Grotesk', sans-serif; }
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.glass-dark {
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(20px);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+.status-dot { animation: status-pulse 1.5s infinite; }
+@keyframes status-pulse {
+  0%,100% { opacity:1; }
+  50% { opacity:0.35; }
+}
+
+.parcel-plane { animation: flyParcel 4s linear infinite; }
+@keyframes flyParcel {
+  0% { transform: translateX(-40px) rotate(-10deg); }
+  100% { transform: translateX(200px) rotate(10deg); }
+}
+
+.progress-bar { transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+
+/* Leaflet overrides */
+.leaflet-container { background: #1e293b !important; }
+.leaflet-control-attribution { display: none !important; }
+
+.leaflet-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+  display: none !important;
+}
+
+/* Style Leaflet Zoom controls to match dark theme */
+.leaflet-bar {
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background-color: rgba(9, 9, 11, 0.95) !important;
+  color: #f4f4f5 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.2s;
+}
+
+.leaflet-bar a:hover {
+  background-color: rgba(39, 39, 42, 1) !important;
+  color: white !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 20px; }
+
+.chat-bubble-user { background: linear-gradient(90deg, #0ea5e9, #6366f1); }
+.chat-bubble-bot { background: rgba(255,255,255,0.1); }
